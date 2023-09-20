@@ -1,16 +1,14 @@
-use crate::{
-    cube::CubeCoordinate::{Center, End, Start},
-    geometry::Block,
-};
+use crate::block::BlockBuilder;
+use crate::coordinate::Position::Number1;
 
 use super::Shape;
 
-pub(crate) const fn new_shape6() -> Shape<4> {
-    let blocks = [
-        Block::center(),
-        Block::center().with_x(End),
-        Block::center().with_z(End),
-        Block::new(End, Start, Center),
-    ];
-    Shape::new(blocks)
+pub(crate) const fn new_shape7() -> Shape<4> {
+  let blocks = [
+    BlockBuilder::new().build(),
+    BlockBuilder::new().x(Number1).build(),
+    BlockBuilder::new().z(Number1).build(),
+    BlockBuilder::new().y(Number1).z(Number1).build(),
+  ];
+  Shape::new(blocks)
 }
